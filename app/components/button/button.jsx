@@ -1,6 +1,5 @@
-import React from "react";
-import Button from "./styles";
+import Buttons from "./styles";
 
-export default function Button(label) {
-  return <Button>{label}</Button>;
+export default function Button({ label }) {
+  return <Buttons>{label}</Buttons>;
 }
