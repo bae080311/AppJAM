@@ -5,8 +5,11 @@ import Post from "../components/post/post";
 import styles from "./styles";
 import arrow from "../svgs/rightArrow.svg";
 import plus from "../svgs/plus.svg";
+import Footer from "../components/footer/footer";
+import { useRouter } from "next/navigation";
 
 export default function MainPage() {
+  const route = useRouter();
   return (
     <styles.Container>
       <styles.Title>오늘의 메뉴 추천</styles.Title>
@@ -29,10 +32,11 @@ export default function MainPage() {
         <styles.Title>그 이후 밥 약속 찾기</styles.Title>
         <Image src={arrow} alt="가기" />
       </styles.TitleContainer>
-      <styles.button>
+      <styles.button onClick={() => route.push("/write")}>
         밥 약속 추가하기
         <Image src={plus} alt="더하기" />
       </styles.button>
+      <Footer />
     </styles.Container>
   );
 }
