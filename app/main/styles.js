@@ -1,5 +1,3 @@
-import { stepLabelClasses } from "@mui/material";
-
 const { default: styled } = require("styled-components");
 
 const Container = styled.div`
