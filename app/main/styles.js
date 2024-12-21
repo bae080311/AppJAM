@@ -31,7 +31,11 @@ const button = styled.button`
 
 const postContainer = styled.div`
   display: flex;
-  overflow-x: auto;
+  overflow-x: auto; /* 가로 스크롤 활성화 */
+  overflow-y: hidden; /* 세로 스크롤 비활성화 */
+  padding: 1rem;
+  gap: 1rem;
+  white-space: nowrap; /* 줄바꿈 방지로 가로 콘텐츠 유지 */
 `;
 
 const Img = styled.image``;

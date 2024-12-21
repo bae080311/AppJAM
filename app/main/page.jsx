@@ -22,6 +22,8 @@ export default function MainPage() {
         <Post />
         <Post />
         <Post />
+        <Post />
+        <Post />
       </styles.postContainer>
       <styles.TitleContainer>
         <styles.Title>그 이후 밥 약속 찾기</styles.Title>
