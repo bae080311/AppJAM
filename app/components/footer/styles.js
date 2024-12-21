@@ -2,7 +2,7 @@ const { default: styled } = require("styled-components");
 
 const Container = styled.footer`
   display: flex;
-  gap: 4rem;
+  gap: 5rem;
   align-items: center;
   position: fixed;
   bottom: 1rem;

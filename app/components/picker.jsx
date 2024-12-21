@@ -29,7 +29,6 @@ export default function BasicDateTimePicker({ setDate }) {
           onChange={handleChange}
         />
       </DemoContainer>
-      <div>현재 값: {formatDate(value)}</div>
     </LocalizationProvider>
   );
 }
