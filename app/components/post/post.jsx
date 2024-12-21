@@ -1,8 +1,14 @@
+import { useRouter } from "next/navigation";
 import styles from "./styles";
 
 export default function Post({ post }) {
+  const route = useRouter();
   return (
-    <styles.Container>
+    <styles.Container
+      onClick={() => {
+        route.push(`/post/${post.id}`);
+      }}
+    >
       <styles.date>{post.date}</styles.date> {/* createdAt -> date로 변경 */}
       <styles.titleContainer>
         <styles.menu>{post.content}</styles.menu>{" "}
