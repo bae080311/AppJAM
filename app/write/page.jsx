@@ -8,6 +8,7 @@ import axios from "axios";
 import { url } from "../config";
 import Dropdown2 from "../components/dropdown2";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function WritePage() {
   const [location, setLocation] = useState("");
@@ -15,6 +16,8 @@ export default function WritePage() {
   const [meal, setMeal] = useState("");
   const [sort, setSort] = useState("");
   const [date, setDate] = useState("");
+
+  const route = useRouter();
 
   useEffect(() => {
     console.log("클라이언트에서만 실행되는 코드입니다.");
@@ -39,6 +42,7 @@ export default function WritePage() {
       )
       .then(() => {
         console.log("데이터 전송 성공");
+        route.push("/main");
       })
       .catch((e) => {
         console.error("데이터 전송 실패:", e);
