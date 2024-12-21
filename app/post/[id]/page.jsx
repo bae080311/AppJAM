@@ -1,5 +1,6 @@
 "use client";
 
+import { useParams } from "next/navigation";
 import {
   Container,
   Title,
@@ -8,8 +9,15 @@ import {
   Content,
   Button,
 } from "./styles";
+import { useEffect } from "react";
+import axios from "axios";
+import { url } from "../../config";
 
 export default function PostPage() {
+  const params = useParams();
+  useEffect(() => {
+    axios.get(`${url}/schedules`);
+  });
   return (
     <Container>
       <Title>게시글 제목</Title>
