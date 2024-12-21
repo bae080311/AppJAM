@@ -7,11 +7,11 @@ import Select from "@mui/material/Select";
 import WritePage from "../write/page";
 
 export default function BasicSelect() {
-  const [sort, setSort] = React.useState("");
+  const [meal, setMeal] = React.useState("");
 
   const handleChange = (event) => {
-    setSort(event.target.value);
-    <WritePage sort={sort} />;
+    setMeal(event.target.value);
+    <WritePage meal={meal} />;
   };
 
   return (
@@ -21,14 +21,13 @@ export default function BasicSelect() {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={sort}
-          label="음식종류"
+          value={meal}
+          label="식사"
           onChange={handleChange}
         >
-          <MenuItem value={"한식"}>한식</MenuItem>
-          <MenuItem value={"중식"}>중식</MenuItem>
-          <MenuItem value={"일식"}>일식</MenuItem>
-          <MenuItem value={"양식"}>양식</MenuItem>
+          <MenuItem value={"한식"}>아침</MenuItem>
+          <MenuItem value={"중식"}>점심</MenuItem>
+          <MenuItem value={"저녁"}>저녁</MenuItem>
         </Select>
       </FormControl>
     </Box>
