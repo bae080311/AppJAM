@@ -10,6 +10,9 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { url } from "../config";
+import bibim from "../images/bibim.png";
+import noodle from "../images/noodle.png";
+import duck from "../images/duck.png";
 
 export default function MainPage() {
   // data를 빈 객체로 초기화하고 posts 배열 포함
@@ -49,7 +52,9 @@ export default function MainPage() {
     <styles.Container>
       <styles.Title>오늘의 메뉴 추천</styles.Title>
       <styles.postContainer>
-        <styles.Img />
+        <Image src={bibim} alt="비빔밥" width={100} />
+        <Image src={noodle} alt="국수" width={100} />
+        <Image src={duck} alt="떡국" width={100} />
       </styles.postContainer>
       <styles.TitleContainer>
         <styles.Title>오늘 밥 약속 찾기</styles.Title>
@@ -60,13 +65,9 @@ export default function MainPage() {
         {Array.isArray(data.schedules) &&
           data.schedules.map((v) => <Post key={v.id} post={v} />)}
       </styles.postContainer>
-      <styles.TitleContainer>
-        <styles.Title>그 이후 밥 약속 찾기</styles.Title>
-        <Image src={arrow} alt="가기" />
-      </styles.TitleContainer>
       <styles.button onClick={() => route.push("/write")}>
         밥 약속 추가하기
-        <Image src={plus} alt="더하기" />
+        <Image src={plus} alt="더하기" hidden />
       </styles.button>
       <Footer />
     </styles.Container>
