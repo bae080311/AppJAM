@@ -1,18 +1,17 @@
 import styles from "./styles";
 
-export default function Post() {
+export default function Post({ post }) {
   return (
     <styles.Container>
-      <styles.date>12 . 21</styles.date>
+      <styles.date>{post.createdAt}</styles.date>
       <styles.titleContainer>
-        <styles.menu>파스타</styles.menu>
-        <styles.meal>(양식)</styles.meal>
+        <styles.menu>{post.menuName}</styles.menu>
+        <styles.meal>({post.mealTime})</styles.meal>
       </styles.titleContainer>
       <styles.category>
-        <span>닉네임. </span>
-        <span>나이. </span>
-        <span>성별. </span>
-        <span>광주</span>
+        <span>{post.author.nickname}. </span>
+        <span>{post.author.age}. </span>
+        <span>{post.location}</span>
       </styles.category>
     </styles.Container>
   );
