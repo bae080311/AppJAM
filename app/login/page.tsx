@@ -60,7 +60,7 @@ export default function LoginPage() {
                 errors.email ? "border-red-500" : ""
               }`}
               {...register("id", {
-                required: "아이디를를 입력해주세요.",
+                required: "아이디를 입력해주세요.",
                 pattern: {
                     value: /^[a-zA-Z0-9]+$/,
                     message: "영어와 숫자만 입력 가능합니다.",
