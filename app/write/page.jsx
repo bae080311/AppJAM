@@ -29,7 +29,7 @@ export default function WritePage() {
           location: location,
           menuName: sort,
           content: content,
-          date: "2025-01-03",
+          date: "2025-01-04",
         },
         {
           headers: {
