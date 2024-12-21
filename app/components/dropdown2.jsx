@@ -1,17 +1,20 @@
+"use client";
+
 import * as React from "react";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import WritePage from "../write/page";
 
-export default function BasicSelect() {
-  const [meal, setMeal] = React.useState("");
+export default function BasicSelect({ setMeal }) {
+  // 로컬 상태 선언
+  const [localMeal, setLocalMeal] = React.useState("");
 
   const handleChange = (event) => {
-    setMeal(event.target.value);
-    <WritePage meal={meal} />;
+    const selectedMeal = event.target.value;
+    setLocalMeal(selectedMeal); // 로컬 상태 업데이트
+    setMeal(selectedMeal); // 부모 컴포넌트에 전달
   };
 
   return (
@@ -21,12 +24,12 @@ export default function BasicSelect() {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={meal}
+          value={localMeal} // 로컬 상태와 연결
           label="식사"
           onChange={handleChange}
         >
-          <MenuItem value={"한식"}>아침</MenuItem>
-          <MenuItem value={"중식"}>점심</MenuItem>
+          <MenuItem value={"아침"}>아침</MenuItem>
+          <MenuItem value={"점심"}>점심</MenuItem>
           <MenuItem value={"저녁"}>저녁</MenuItem>
         </Select>
       </FormControl>

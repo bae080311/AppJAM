@@ -1,12 +1,13 @@
+"use client";
+
 import React, { useState } from "react";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import dayjs from "dayjs";
-import WritePage from "../write/page";
 
-export default function BasicDateTimePicker() {
+export default function BasicDateTimePicker({ setDate }) {
   const [value, setValue] = useState(dayjs("2024-12-10T12:43:08.798Z"));
 
   const formatDate = (date) => dayjs(date).format("YYYY-MM-DD HH:mm:ss");
@@ -15,7 +16,7 @@ export default function BasicDateTimePicker() {
     setValue(newValue);
 
     const formattedDate = formatDate(newValue);
-    <WritePage date={formattedDate} />;
+    setDate(formattedDate);
   };
 
   return (

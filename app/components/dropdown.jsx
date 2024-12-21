@@ -1,28 +1,31 @@
-import * as React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import WritePage from "../write/page";
 
-export default function BasicSelect() {
-  const [sort, setSort] = React.useState("");
+export default function BasicSelect({ setSort }) {
+  // 내부에서 sort 상태 관리
+  const [localSort, setLocalSort] = useState("");
 
   const handleChange = (event) => {
-    setSort(event.target.value);
-    <WritePage sort={sort} />;
+    const selectedSort = event.target.value;
+    setLocalSort(selectedSort); // 로컬 상태 업데이트
+    setSort(selectedSort); // 부모 컴포넌트에 전달
   };
 
   return (
     <Box sx={{ minWidth: 300 }}>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">음식종류</InputLabel>
+        <InputLabel id="demo-simple-select-label">음식 종류</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={sort}
-          label="음식종류"
+          value={localSort}
+          label="음식 종류"
           onChange={handleChange}
         >
           <MenuItem value={"한식"}>한식</MenuItem>
