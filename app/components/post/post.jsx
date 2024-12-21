@@ -3,14 +3,17 @@ import styles from "./styles";
 export default function Post({ post }) {
   return (
     <styles.Container>
-      <styles.date>{post.createdAt}</styles.date>
+      <styles.date>{post.date}</styles.date> {/* createdAt -> date로 변경 */}
       <styles.titleContainer>
-        <styles.menu>{post.menuName}</styles.menu>
+        <styles.menu>{post.content}</styles.menu>{" "}
+        {/* menuName -> content로 변경 */}
         <styles.meal>({post.mealTime})</styles.meal>
       </styles.titleContainer>
       <styles.category>
-        <span>{post.author.nickname}. </span>
-        <span>{post.author.age}. </span>
+        <span>{post.author?.name}. </span>{" "}
+        {/* author 객체가 있을 경우에만 접근 */}
+        <span>{post.author?.age}. </span>{" "}
+        {/* author 객체가 있을 경우에만 접근 */}
         <span>{post.location}</span>
       </styles.category>
     </styles.Container>
