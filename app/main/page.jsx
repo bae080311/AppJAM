@@ -12,19 +12,23 @@ import axios from "axios";
 import { url } from "../config";
 
 export default function MainPage() {
-  const [data, setData] = useState([]); // data를 빈 배열로 초기화
+  // data를 빈 객체로 초기화하고 posts 배열 포함
+  const [data, setData] = useState({ schedules: [] });
   const [loading, setLoading] = useState(true); // 로딩 상태
   const [error, setError] = useState(null); // 에러 상태
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${url}/posts`, {
-          headers: {
-            authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzQ4ODc0MjYsInVzZXJJZCI6Mn0.03P9a9U-wWjbmx25-D8pAfCmvyRYhkjj4NoEvCDlmMk"}`,
-          },
-        });
-        setData(response.data);
+        const response = await axios.get(
+          `${url}/schedules?year=${2025}&month=${1}`,
+          {
+            headers: {
+              authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzQ4ODc0MjYsInVzZXJJZCI6Mn0.03P9a9U-wWjbmx25-D8pAfCmvyRYhkjj4NoEvCDlmMk"}`,
+            },
+          }
+        );
+        setData(response.data); // 응답 데이터로 상태 설정
       } catch (err) {
         setError("데이터를 불러오는 데 실패했습니다.");
       } finally {
@@ -52,7 +56,9 @@ export default function MainPage() {
         <Image src={arrow} alt="가기" />
       </styles.TitleContainer>
       <styles.postContainer>
-        {Array.isArray(data) && data.map((v) => <Post key={v.id} post={v} />)}
+        {/* data.schedules 배열을 대상으로 map 호출 */}
+        {Array.isArray(data.schedules) &&
+          data.schedules.map((v) => <Post key={v.id} post={v} />)}
       </styles.postContainer>
       <styles.TitleContainer>
         <styles.Title>그 이후 밥 약속 찾기</styles.Title>
